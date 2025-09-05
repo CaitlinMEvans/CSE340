@@ -1,6 +1,312 @@
-/******* Change Box Model ***************/
+/* ****** Change Box Model **************
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+} */
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  /* background-color: #f5f5f5; */
+  background-image: url('/images/site/checkerboard.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+  border: solid 8px #2D78B0;
+}
+
+/* Header Styles */
+#top-header {
+  background-color: #fff;
+  color: #2c3e50;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siteName a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#tools a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+#tools a:hover,
+.siteName a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #242332;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #2c3e50;
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* Hero Section */
+.hero-section {
+  /* background: linear-gradient(135deg, #3498db, #2980b9); */
+  color: #000;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2D78B0; 
+}
+
+.hero-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.hero-features li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-button {
+  background-color: #2D78B0;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #242332;
+}
+
+.hero-image {
+  margin-top: 1.5rem;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Content Sections */
+.content-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.reviews-section,
+.upgrades-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.reviews-section h2,
+.upgrades-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.reviews-list {
+  list-style: none;
+}
+
+.reviews-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-style: italic;
+}
+
+.reviews-list li:last-child {
+  border-bottom: none;
+}
+
+/* Upgrades Grid */
+.upgrades-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.upgrade-item {
+  text-align: center;
+  background-color: #2D78B0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.upgrade-item:hover {
+  transform: translateY(-3px);
+}
+
+.upgrade-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-item a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.copyright {
+  font-size: 0.9rem;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 1400px) {
+  main {
+    padding: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+  }
+  
+  .hero-image {
+    flex: 1;
+    margin-top: 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .content-sections {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .reviews-section,
+  .upgrades-section {
+    flex: 1;
+  }
+    
+  .upgrades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  nav ul {
+    justify-content: flex-start;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 3rem 2rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .upgrades-grid {
+    gap: 2rem;
+  }
+  
+  .upgrade-item img {
+    width: 100px;
+    height: 100px;
+  }
 }
