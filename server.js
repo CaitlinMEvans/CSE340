@@ -48,6 +48,11 @@ app.use(async (req, res, next) => {
   })
 })
 
+//  test route for 500 error
+app.get("/error-test", utilities.handleErrors(async (req, res) => {
+  throw new Error("Intentional crash for testing 500 flow")
+}))
+
 /* ***********************
  * Express Error Handler (last)
  *************************/

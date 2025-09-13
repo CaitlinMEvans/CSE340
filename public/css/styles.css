@@ -430,3 +430,43 @@ nav a[aria-current="page"]::after {
 .error-banner a:hover {
   text-decoration: underline;
 }
+
+/* Vehicle Detail Styles  */
+#vehicle-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  margin: 1rem 0 2rem;
+}
+#vehicle-detail .vehicle-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+#vehicle-detail .vehicle-specs h2 {
+  font-size: 1.5rem;
+  color: #1e2b3a;
+  margin: 0 0 .25rem;
+}
+#vehicle-detail .veh-price {
+  font-weight: 800;
+  color: #2D78B0;
+  font-size: 1.25rem;
+  margin-bottom: .5rem;
+}
+#vehicle-detail .veh-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 .75rem;
+}
+#vehicle-detail .veh-meta li { margin-bottom: .25rem; }
+#vehicle-detail .veh-desc { line-height: 1.6; color: #374151; }
+
+/* large screens: side-by-side */
+@media (min-width: 960px) {
+  #vehicle-detail {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
