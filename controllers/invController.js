@@ -33,7 +33,7 @@ invCont.buildByInvId = async function (req, res, next) {
   const detail = await utilities.buildDetailView(vehicle)
   const nav = await utilities.getNav()
   const title = `${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}`
-  return res.render("./inventory/detail", { title, nav, detail })
+  return res.render("./inventory/details", { title, nav, detail })
 }
 
 module.exports = invCont
