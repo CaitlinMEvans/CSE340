@@ -470,3 +470,105 @@ nav a[aria-current="page"]::after {
     grid-template-columns: 1.2fr 1fr;
   }
 }
+
+/* ================================
+   Login Form Styles
+   ================================ */
+#loginForm {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e6e8ec;
+}
+
+#loginForm fieldset {
+  border: none;
+  padding: 0;
+}
+
+#loginForm legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+#loginForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#loginForm input:focus {
+  outline: none;
+  border-color: #2D78B0;
+  box-shadow: 0 0 0 3px rgba(45, 120, 176, 0.1);
+}
+
+#loginForm input::placeholder {
+  color: #9ca3af;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: #2D78B0;
+  color: white;
+  border: none;
+  padding: 0.875rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.login-btn:hover {
+  background-color: #242332;
+}
+
+.login-btn:active {
+  transform: translateY(1px);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.register-link a {
+  color: #2D78B0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #loginForm {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

@@ -10,6 +10,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
+const accountRoute = require("./routes/accountRoute")
 const utilities = require("./utilities/")  
 
 /* ***********************
@@ -46,11 +47,13 @@ app.set("layout", "./layouts/layout")
 app.use(static)
 
 // Index route
-// app.get("/", baseController.buildHome)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+// Account routes
+app.use("/account", accountRoute)
 
 // 404 catch-all (must be AFTER all routes)
 app.use(async (req, res, next) => {
