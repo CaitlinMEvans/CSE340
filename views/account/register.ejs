@@ -39,6 +39,10 @@
     />
 
     <label for="account_password">Password:</label>
+    <span class="password-requirements"
+      >Passwords must be at least 12 characters and contain at least 1 number, 1
+      capital letter and 1 special character</span
+    >
     <div class="password-wrapper">
       <input
         type="password"
@@ -46,27 +50,11 @@
         name="account_password"
         required
         placeholder="Enter your password"
-        pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{12,}$"
-        title="Password must be at least 12 characters, include 1 capital letter, 1 number, and 1 special character (!@#$%^&*)"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
       />
-      <button
-        type="button"
-        id="togglePassword"
-        class="toggle-password"
-        aria-label="Show password"
-      >
-        <span id="eyeIcon">👁️</span>
+      <button type="button" id="togglePassword" class="toggle-password">
+        <span id="toggleText">Show</span>
       </button>
-    </div>
-
-    <div class="password-requirements">
-      <p>Password must contain:</p>
-      <ul>
-        <li>At least 12 characters</li>
-        <li>At least 1 capital letter</li>
-        <li>At least 1 number</li>
-        <li>At least 1 special character (!@#$%^&*)</li>
-      </ul>
     </div>
 
     <button type="submit" class="register-btn">Register</button>
@@ -78,15 +66,14 @@
 </p>
 
 <script>
-  // Password toggle functionality
   const togglePassword = document.getElementById("togglePassword");
   const passwordInput = document.getElementById("account_password");
-  const eyeIcon = document.getElementById("eyeIcon");
+  const toggleText = document.getElementById("toggleText");
 
   togglePassword.addEventListener("click", function () {
     const type =
       passwordInput.getAttribute("type") === "password" ? "text" : "password";
     passwordInput.setAttribute("type", type);
-    eyeIcon.textContent = type === "password" ? "Show" : "Hide";
+    toggleText.textContent = type === "password" ? "Show" : "Hide";
   });
 </script>

@@ -572,7 +572,6 @@ nav a[aria-current="page"]::after {
     padding: 1.5rem;
   }
 }
-
 /* ================================
    Account Forms (Login & Register)
    ================================ */
@@ -679,19 +678,9 @@ nav a[aria-current="page"]::after {
 
 /* Password requirements */
 .password-requirements {
-  background-color: #f9f9f9;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  display: block;
   font-size: 0.85rem;
-}
-
-.password-requirements p {
-  margin: 0 0 0.5rem 0;
-  font-weight: 600;
-}
-
-.password-requirements ul {
-  margin: 0;
-  padding-left: 1.25rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-style: italic;
 }
