@@ -1,7 +1,7 @@
 <h1><%= title %></h1>
-<%- messages() %> <% if (errors) { %>
+<%- messages() %> <% if (locals.errors) { %>
 <ul class="notice">
-  <% errors.array().forEach(error => { %>
+  <% locals.errors.array().forEach(error => { %>
   <li><%= error.msg %></li>
   <% }) %>
 </ul>
@@ -18,6 +18,7 @@
       name="account_firstname"
       required
       placeholder="Enter your first name"
+      value="<%= locals.account_firstname %>"
     />
 
     <label for="account_lastname">Last Name:</label>
@@ -27,6 +28,7 @@
       name="account_lastname"
       required
       placeholder="Enter your last name"
+      value="<%= locals.account_lastname %>"
     />
 
     <label for="account_email">Email Address:</label>
@@ -36,6 +38,7 @@
       name="account_email"
       required
       placeholder="Enter your email"
+      value="<%= locals.account_email %>"
     />
 
     <label for="account_password">Password:</label>
