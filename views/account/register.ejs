@@ -1,0 +1,92 @@
+<h1><%= title %></h1>
+<%- messages() %> <% if (errors) { %>
+<ul class="error-list">
+  <% errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form id="registerForm" action="/account/register" method="post">
+  <fieldset>
+    <legend>Create your account</legend>
+
+    <label for="account_firstname">First Name:</label>
+    <input
+      type="text"
+      id="account_firstname"
+      name="account_firstname"
+      required
+      placeholder="Enter your first name"
+    />
+
+    <label for="account_lastname">Last Name:</label>
+    <input
+      type="text"
+      id="account_lastname"
+      name="account_lastname"
+      required
+      placeholder="Enter your last name"
+    />
+
+    <label for="account_email">Email Address:</label>
+    <input
+      type="email"
+      id="account_email"
+      name="account_email"
+      required
+      placeholder="Enter your email"
+    />
+
+    <label for="account_password">Password:</label>
+    <div class="password-wrapper">
+      <input
+        type="password"
+        id="account_password"
+        name="account_password"
+        required
+        placeholder="Enter your password"
+        pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{12,}$"
+        title="Password must be at least 12 characters, include 1 capital letter, 1 number, and 1 special character (!@#$%^&*)"
+      />
+      <button
+        type="button"
+        id="togglePassword"
+        class="toggle-password"
+        aria-label="Show password"
+      >
+        <span id="eyeIcon">👁️</span>
+      </button>
+    </div>
+
+    <div class="password-requirements">
+      <p>Password must contain:</p>
+      <ul>
+        <li>At least 12 characters</li>
+        <li>At least 1 capital letter</li>
+        <li>At least 1 number</li>
+        <li>At least 1 special character (!@#$%^&*)</li>
+      </ul>
+    </div>
+
+    <button type="submit" class="register-btn">Register</button>
+  </fieldset>
+</form>
+
+<p class="login-link">
+  Already have an account? <a href="/account/login">Log in here</a>
+</p>
+
+<script>
+  // Password toggle functionality
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("account_password");
+  const eyeIcon = document.getElementById("eyeIcon");
+
+  togglePassword.addEventListener("click", function () {
+    const type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+    eyeIcon.textContent = type === "password" ? "Show" : "Hide";
+  });
+</script>
