@@ -1,0 +1,27 @@
+<h1><%= title %></h1>
+<%- messages() %> <% if (locals.errors) { %>
+<ul class="notice">
+  <% locals.errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<div class="management-links">
+  <h2>Inventory Management Options</h2>
+  <ul>
+    <li>
+      <a
+        href="/inv/add-classification"
+        title="Add a new vehicle classification"
+      >
+        Add New Classification
+      </a>
+    </li>
+    <li>
+      <a href="/inv/add-inventory" title="Add a new vehicle to inventory">
+        Add New Vehicle
+      </a>
+    </li>
+  </ul>
+</div>
