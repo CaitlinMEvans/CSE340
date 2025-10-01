@@ -46,4 +46,117 @@ validate.checkClassificationData = async (req, res, next) => {
   next()
 }
 
+/*  **********************************
+ *  Inventory Data Validation Rules
+ * ********************************* */
+validate.inventoryRules = () => {
+  return [
+    body("inv_make")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 3 })
+      .withMessage("Please provide a valid make (minimum 3 characters)."),
+
+    body("inv_model")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 3 })
+      .withMessage("Please provide a valid model (minimum 3 characters)."),
+
+    body("inv_year")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt({ min: 1900, max: new Date().getFullYear() + 1 })
+      .withMessage("Please provide a valid 4-digit year."),
+
+    body("inv_description")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 1 })
+      .withMessage("Please provide a description."),
+
+    body("inv_image")
+      .trim()
+      .notEmpty()
+      .withMessage("Please provide an image path."),
+
+    body("inv_thumbnail")
+      .trim()
+      .notEmpty()
+      .withMessage("Please provide a thumbnail path."),
+
+    body("inv_price")
+      .trim()
+      .notEmpty()
+      .isDecimal({ decimal_digits: '0,2' })
+      .withMessage("Please provide a valid price."),
+
+    body("inv_miles")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt({ min: 0 })
+      .withMessage("Please provide valid mileage."),
+
+    body("inv_color")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 1 })
+      .withMessage("Please provide a color."),
+
+    body("classification_id")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Please select a classification."),
+  ]
+}
+
+/* ******************************
+ * Check data and return errors or continue to add inventory
+ * ***************************** */
+validate.checkInventoryData = async (req, res, next) => {
+  const {
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id,
+  } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    let classificationList = await utilities.buildClassificationList(classification_id)
+    res.render("inventory/add-inventory", {
+      errors,
+      title: "Add New Vehicle",
+      nav,
+      classificationList,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+    })
+    return
+  }
+  next()
+}
+
 module.exports = validate

@@ -19,6 +19,17 @@ router.post(
   utilities.handleErrors(invController.addClassification)
 )
 
+// Route to build add inventory view
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory))
+
+// Process the add inventory
+router.post(
+  "/add-inventory",
+  invValidate.inventoryRules(),
+  invValidate.checkInventoryData,
+  utilities.handleErrors(invController.addInventory)
+)
+
 // Route to build inventory by classification view
 router.get("/type/:classificationId",
   utilities.handleErrors(invController.buildByClassificationId)
