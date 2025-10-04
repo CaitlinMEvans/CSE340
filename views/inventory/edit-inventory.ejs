@@ -112,7 +112,7 @@
       value="<%= locals.inv_color %>"
     />
 
-    <button type="submit" class="submit-btn">Update Vehicle</button>
+    <button type="submit" class="submit-btn" disabled>Update Vehicle</button>
 
     <input type="hidden" name="inv_id" value="<%= locals.inv_id %>" />
   </fieldset>
@@ -121,3 +121,5 @@
 <p class="back-link">
   <a href="/inv/">Back to Management</a>
 </p>
+
+<script src="/js/inv-update.js"></script>

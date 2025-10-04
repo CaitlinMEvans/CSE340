@@ -843,3 +843,19 @@ ul.notice li:last-child {
 .back-link a:hover {
   text-decoration: underline;
 }
+
+/* ================================
+   Disabled Button Styles
+   ================================ */
+.submit-btn:disabled,
+button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submit-btn:disabled:hover,
+button:disabled:hover {
+  background-color: #9ca3af;
+  transform: none;
+}
