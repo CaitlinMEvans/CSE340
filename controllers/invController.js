@@ -45,9 +45,11 @@ invCont.addClassification = async function (req, res) {
     )
     // Rebuild nav to show new classification
     nav = await utilities.getNav()
+    const classificationSelect = await utilities.buildClassificationList()
     res.status(201).render("inventory/management", {
       title: "Vehicle Management",
       nav,
+      classificationSelect,
       errors: null,
     })
   } else {
@@ -110,9 +112,11 @@ invCont.addInventory = async function (req, res) {
       "notice",
       `${inv_year} ${inv_make} ${inv_model} was successfully added to inventory.`
     )
+    const classificationSelect = await utilities.buildClassificationList()
     res.status(201).render("inventory/management", {
       title: "Vehicle Management",
       nav,
+      classificationSelect,
       errors: null,
     })
   } else {
@@ -172,8 +176,6 @@ invCont.getInventoryJSON = async (req, res, next) => {
     next(new Error("No data returned"))
   }
 }
-
-module.exports = invCont
 
 /* ***************************
  *  Build edit inventory view
@@ -300,3 +302,5 @@ invCont.deleteInventory = async function (req, res, next) {
     res.redirect("/inv/delete/" + inv_id)
   }
 }
+
+module.exports = invCont
