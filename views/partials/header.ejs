@@ -5,11 +5,26 @@
     >
   </span>
   <div id="tools" role="navigation" aria-label="User account tools">
-    <a
-      title="Click to log in"
-      href="/account/login"
-      aria-label="Access my account login page"
-      >My Account</a
-    >
+    <% if (locals.loggedin) { %>
+      
+        title="Click to manage account"
+        href="/account/"
+        aria-label="Access account management"
+        >Welcome <%= accountData.account_firstname %></a
+      >
+      
+        title="Click to log out"
+        href="/account/logout"
+        aria-label="Log out of your account"
+        >Logout</a
+      >
+    <% } else { %>
+      
+        title="Click to log in"
+        href="/account/login"
+        aria-label="Access my account login page"
+        >My Account</a
+      >
+    <% } %>
   </div>
 </header>
